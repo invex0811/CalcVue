@@ -28,10 +28,17 @@ input[type="number"]{
     font-size: 18px;
     padding-left: 10px;
 }
+.vertical-line{
+    background-color: #fff;
+    height: 15px;
+    width: 2px;
+}
 .checkbox-wrap{
-    width: 250px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+label{
+    margin: 0 5px;
 }
 button{
     width: 75px;

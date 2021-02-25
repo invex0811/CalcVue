@@ -10,7 +10,7 @@ Vue.createApp({
             bonus: '',
             bonusCheck: '',
             tax: '',
-
+            taxFivePercent: '',
         }
     },
     methods:{
@@ -65,8 +65,10 @@ Vue.createApp({
                 
                 return this.totalMoney + ( this.fourPercent + this.checkTax + this.bonusCalc);
                 
+            },
+            calcTaxFivePercent(){
+                return this.totalMoney / 100 * (this.taxFivePercent * 5) ;
             }
-            
                  
         }
 
