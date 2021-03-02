@@ -10,7 +10,8 @@ Vue.createApp({
             bonus: '',
             bonusCheck: '',
             tax: '',
-            taxFivePercent: '',
+            taxFivePercentCheck: '',
+            dollarRate: '',
         }
     },
     methods:{
@@ -34,7 +35,6 @@ Vue.createApp({
                 this.totalMoney = this.overTime * this.overRate + this.rate * 160;
             }  
             
-    
         }
 
        } ,
@@ -63,11 +63,13 @@ Vue.createApp({
             },
             totalCalc(){
                 
-                return this.totalMoney + ( this.fourPercent + this.checkTax + this.bonusCalc);
+                return Math.round(this.totalMoney + ( this.fourPercent + this.checkTax + this.bonusCalc));
                 
             },
-            calcTaxFivePercent(){
-                return this.totalMoney / 100 * (this.taxFivePercent * 5) ;
+            taxFivePercentCalc(){
+
+                return this.totalCalc * this.dollarRate / 100 * (this.taxFivePercentCheck * 5);
+                
             }
                  
         }

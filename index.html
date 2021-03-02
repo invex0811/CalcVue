@@ -14,12 +14,13 @@
             <input type="number" v-model.number='time' placeholder="Time">
             <input type="number" v-model.number='rate' placeholder="Rate">
             <input type="number" v-model.number='bonus' placeholder="Bonus" v-if="bonusCheck">
+            <input type="number" v-model.number="dollarRate" placeholder="Dollar rate" v-if="taxFivePercentCheck"> 
         </div>
         <div class="checkbox-wrap">
             <label for="vacation" title="Отпуск 4%">Vacation:<input id="vacation" type="checkbox" v-model="vacation" ></label><div class="vertical-line"></div>
             <label for="tax" title="Налог +45$">Tax:<input id="tax" type="checkbox" v-model="tax" ></label><div class="vertical-line"></div>
-            <label for="bonusCheck" title="Премия">Bonus:<input id="bonusCheck" type="checkbox" v-model="bonusCheck" ></label><div class="vertical-line"></div>
-            <label for="tax5" title="Налог 5%">Tax 5%:<input  id="tax5" type="checkbox" v-model="taxFivePercent"></label>
+            <label for="bonusCheck" title="Премия">Bonus:<input id="bonusCheck" type="checkbox" v-model="bonusCheck"></label><div class="vertical-line"></div>
+            <label for="tax5" title="Налог 5%">Tax 5%:<input  id="tax5" type="checkbox" v-model="taxFivePercentCheck"></label>
         </div>
         
         <button v-on:click='calcMoney()'>OK</button>
@@ -30,8 +31,8 @@
             <span>Rate: {{ rate }}</span>
             <span>Over rate: {{ overRate }}</span>
             <span v-if="bonusCheck">Bonus: {{ bonus }}</span>
-            <span>Money: {{ Math.round(totalCalc) }}</span>
-            <span>Tax 5%: {{calcTaxFivePercent}}</span>
+            <span>Money: {{ totalCalc }}</span>
+            <span v-if="taxFivePercentCheck">Tax 5%: {{taxFivePercentCalc.toFixed(2)}}</span>
         </div>
         
     </div>
