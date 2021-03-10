@@ -25,14 +25,17 @@
         
         <button v-on:click='calcMoney()'>OK</button>
 
-        <div class="output-wrap">
+        <div class="output-wrap" v-if="totalCalc > 0">
             <span>Time: {{ time }}</span>
             <span>Over time: {{ overTime }}</span>
             <span>Rate: {{ rate }}</span>
             <span>Over rate: {{ overRate }}</span>
             <span v-if="bonusCheck">Bonus: {{ bonus }}</span>
-            <span>Money: {{ totalCalc }}</span>
+            <span>Money: {{ '$ ' + totalCalc }}</span>
             <span v-if="taxFivePercentCheck">Tax 5%: {{taxFivePercentCalc.toFixed(2)}}</span>
+        </div>
+        <div class="message" v-else>
+            <span>Введите данные :)</span>
         </div>
         
     </div>

@@ -70,7 +70,8 @@ Vue.createApp({
 
                 return this.totalCalc * this.dollarRate / 100 * (this.taxFivePercentCheck * 5);
                 
-            }
+            }, 
+        
                  
         }
 
